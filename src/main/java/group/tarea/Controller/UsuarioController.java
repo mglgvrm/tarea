@@ -51,11 +51,22 @@ public class UsuarioController {
             @RequestParam String nombre,
             @RequestParam String apellido) {
 
-        String nombres = nombre +" " + apellido;
         Map<String, String> response = new HashMap<>();
-        response.put("nombreCompleto", nombres );
+            boolean dato = usuarioService.findByNameAndLastName(nombre, apellido);
+                  if (dato){
+                      String nombres = nombre +" " + apellido;
+
+                      response.put("nombreCompleto", nombres );
+
+                  }
+                  else {
+                      response.put("usuario no encontrado", "UNAUTHORIZED");
+                  }
 
         return ResponseEntity.ok(response);
+
+
+
     }
 
 

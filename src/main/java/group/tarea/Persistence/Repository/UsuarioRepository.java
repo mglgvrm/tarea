@@ -1,5 +1,6 @@
 package group.tarea.Persistence.Repository;
 
+import group.tarea.Domain.Dto.UsuarioDto;
 import group.tarea.Persistence.Entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,7 @@ public interface UsuarioRepository extends JpaRepository<User, Long> {
 
     User findByUser(String username);
 
+    boolean existsByNameAndLastName(String name, String lastName);
 
     boolean existsByUser(String user);
 

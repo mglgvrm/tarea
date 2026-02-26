@@ -75,10 +75,7 @@ public class AuthServiceImpl implements AuthService {
                 .build();
     }
 
-    @Override
-    public User getCurrentUser(Authentication authentication) {
-        return (User) authentication.getPrincipal();
-    }
+
 
 
 

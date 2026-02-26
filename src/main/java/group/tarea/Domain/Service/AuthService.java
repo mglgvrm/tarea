@@ -9,5 +9,4 @@ import org.springframework.security.core.Authentication;
 public interface AuthService {
     AuthResponse register (RegisterRequest Request );
     AuthResponse authenticate (AuthenticationRequest Request );
-    User getCurrentUser(Authentication authentication);
 }

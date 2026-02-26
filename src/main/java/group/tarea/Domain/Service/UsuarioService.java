@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class UsuarioService {
+public class UsuarioService implements UserServiceImpl {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
@@ -40,6 +40,11 @@ public class UsuarioService {
     public UsuarioDto save(UsuarioDto usuarioDto) {
         usuarioRepository.save(UsuarioMapper.toEntity(usuarioDto));
         return usuarioDto;
+    }
+    public boolean findByNameAndLastName(String nombre, String apellido){
+        boolean dato= usuarioRepository.existsByNameAndLastName(nombre, apellido);
+        return dato;
+
     }
 
 
